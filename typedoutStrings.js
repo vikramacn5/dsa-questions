@@ -1,14 +1,23 @@
 const typedOutString = function(str, compareStr){
-  let finalStr = '';
+  let finalS = '';
+    let finalT = '';
   let count = 0;
-  for(let i = str.length-1; i>= 0; i--){
-    if(str[i] === '#') count++;
+  for(let i = s.length-1; i>= 0; i--){
+    if(s[i] === '#') count++;
     else{
-      count ? count -- :  finalStr += str[i];
+      count ? count -- :  finalS += s[i];
     }
   }
-  console.log(finalStr);
-  return finalStr.split('').reverse().join('') === compareStr;
+    
+    count = 0;
+    
+    for(let i = t.length-1; i>= 0; i--){
+    if(t[i] === '#') count++;
+    else{
+      count ? count -- :  finalT += t[i];
+    }
+  }
+  return finalS === finalT;
 }
 
 console.log(typedOutString('ab#c', 'ac'));
