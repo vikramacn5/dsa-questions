@@ -1,4 +1,4 @@
-const typedOutString = function(str, compareStr){
+const typedoutString = function(s, t){
   let finalS = '';
     let finalT = '';
   let count = 0;
@@ -20,4 +20,31 @@ const typedOutString = function(str, compareStr){
   return finalS === finalT;
 }
 
-console.log(typedOutString('ab#c', 'ac'));
+const typedoutString2 = function(s, t){
+  
+  let i = s.length - 1;
+  let j = t.length - 1;
+  let countS = 0;
+
+  while(i >=0 || j >= 0){
+    if(s[i] === '#') countS++;
+    else if(countS) countS--;
+    else{
+      let validLetter = false; 
+      let countT = 0;
+      while(!validLetter){
+        if(t[j] === '#') countT++;
+        else if(countT)countT--;
+        else {
+          validLetter = true;
+          if(s[i] !== t[j])return false;
+        }
+        j--;
+      }
+    }
+    i--;
+  }
+  return true;
+}
+
+console.log(typedoutString2('bxj##tw', 'bxj###tw'));
